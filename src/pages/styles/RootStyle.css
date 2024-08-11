@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Kodchasan-Bold';
+    src: url('/public/fonts/Kodchasan-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Kodchasan-Light';
+    src: url('/public/fonts/Kodchasan-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Kodchasan-Medium';
+    src: url('/public/fonts/Kodchasan-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Kodchasan-Regular';
+    src: url('/public/fonts/Kodchasan-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Kodchasan-SemiBold';
+    src: url('/public/fonts/Kodchasan-SemiBold.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Niramit-Bold';
+    src: url('/public/fonts/Niramit-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Niramit-Light';
+    src: url('/public/fonts/Niramit-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Niramit-Medium';
+    src: url('/public/fonts/Niramit-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Niramit-Regular';
+    src: url('/public/fonts/Niramit-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Niramit-SemiBold';
+    src: url('/public/fonts/Niramit-SemiBold.ttf') format('truetype');
+}
