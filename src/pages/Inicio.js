@@ -1,8 +1,32 @@
-import {React} from 'react';
+import {React, useState} from 'react';
 import './styles/Inicio.css';
 import './styles/RootStyle.css';
+import { useNavigate } from 'react-router-dom';
 
 function Inicio() {
+   
+    const navigate = useNavigate();
+    
+    const [nombreUsuario, setNombreUsuario] = useState('');
+    const [contrasena, setContrasena] = useState('');
+
+    const handleNombreUsuario = (event) => {
+        setNombreUsuario(event.target.value);
+        console.log(nombreUsuario)
+    }
+
+    const handleContrasena = (event) => {
+        setContrasena(event.target.value);
+        console.log(contrasena)
+    }
+
+    const handleEntrar = () => {
+        console.log('Entrar')
+    }
+
+    const irRegistro = () => {
+        navigate('/registro');
+    }
 
     return (
         <div className='root-inicio'>
@@ -17,13 +41,14 @@ function Inicio() {
                         <p style={{'fontFamily':'Niramit-SemiBold'}} >Iniciar Sesión</p>
                         <form className='form-inicio'>
                             <label style={{'fontFamily':'Niramit-Medium'}}>Nombre de usuario</label>
-                            <input type='text' style={{'fontFamily':'Niramit-Medium'}} />
+                            <input onChange={handleNombreUsuario} type='text' style={{'fontFamily':'Niramit-Medium'}} />
                             <label style={{'fontFamily':'Niramit-Medium'}}>Contraseña</label>
-                            <input type='password' style={{'fontFamily':'Niramit-Medium'}} />
-                            <button style={{'fontFamily':'Niramit-Bold'}}>Entrar</button>
+                            <input onChange={handleContrasena} type='password' style={{'fontFamily':'Niramit-Medium'}} />
+                            <button onClick={handleEntrar} style={{'fontFamily':'Niramit-Bold'}}>Entrar</button>
                         </form>
                         <p>o</p>
                         <button id='iniciogoogle' style={{'fontFamily':'Niramit-Bold'}}><img src='icons/googleicon.png' alt='googleicon'></img>Iniciar con Google</button>
+                        <p style={{'fontFamily':'Niramit-Regular', 'marginTop': 20}}>¿No tenes cuenta? <a onClick={irRegistro} style={{'fontFamily':'Niramit-Bold', 'cursor':'pointer'}} >Registrate</a></p>
                     </div>
                 </div>
             </div>

@@ -48,3 +48,7 @@
     font-family: 'Niramit-SemiBold';
     src: url('/public/fonts/Niramit-SemiBold.ttf') format('truetype');
 }
+
+:root{
+    --main-back-color: #FFDFD6
+}

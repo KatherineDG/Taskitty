@@ -1,4 +1,4 @@
-.root-incio{
+.root-inicio{
     background-color: #FFDFD6;
 }
 
@@ -23,7 +23,7 @@
 
 .contenedor-iniciar-sesion{
     background-color: #E3A5C7;
-    padding: 15px 50px 50px 50px;
+    padding: 15px 50px 20px 50px;
     border-radius: 15px;
     box-shadow: 0px 0px 10px 0px #dadada;
     h2{
