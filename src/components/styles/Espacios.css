@@ -1,0 +1,30 @@
+
+.contenedor-espacios{
+    width: 25%;
+    margin: 0 0 0 10px;
+}
+
+hr{
+    margin: 40px 15% 0 0;
+}
+
+.titulo-espacio{
+    font-family: 'Niramit-SemiBold';
+    font-size: 1.5em;
+}
+
+.espacio{
+    background-color: #CB76A5;
+    width: 80%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    margin: 0 0 5px 0;
+    font-family: 'Niramit-SemiBold';
+    cursor: pointer;
+}
+
+.listado-equipos{
+    display: flex;
+    flex-direction: column;
+}
