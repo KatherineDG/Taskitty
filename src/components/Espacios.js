@@ -3,7 +3,7 @@ import "./styles/Espacios.css";
 
 function Espacios({nombreUsuario, listaEquipos, handleNombreEspacio}) {
 
-    const [espacioSeleccionado, setEspacioSeleccionado] = useState("");
+    const [espacioSeleccionado, setEspacioSeleccionado] = useState(`Espacio de ${nombreUsuario}`);
 
     const handleEspacioSeleccionado = (nombreEspacio) => {
         setEspacioSeleccionado(nombreEspacio);

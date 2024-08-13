@@ -9,7 +9,7 @@ function AppRoutes() {
     <Routes>
       <Route path="/" element={<Inicio />} />
       <Route path="/registro" element={<Registro />} />
-      <Route path="/home-mi-espacio" element={<Home />} />
+      <Route path="/home-espacios" element={<Home />} />
     </Routes>
   );
 }

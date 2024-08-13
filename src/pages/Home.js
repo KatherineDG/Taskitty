@@ -7,13 +7,15 @@ import Tableros from '../components/Tableros';
 
 function Home() {
 
-    const [nombreEspacio, setNombreEspacio] = useState("");
+    const nombreUsuario = "Katt";
+
+    const [nombreEspacio, setNombreEspacio] = useState(`Espacio de ${nombreUsuario}`);
 
     const handleNombreEspacio = (nombreEspacio) => {
         setNombreEspacio(nombreEspacio);
     }
 
-    const nombreUsuario = "Katt";
+
     const listaEquipos = ["Equipo 1", "Equipo 2", "Equipo 3"];
     const listaTableros = ["Tablero Personal 1", "Tablero Personal 2", "Tablero Personal 3"];
 
@@ -21,8 +23,8 @@ function Home() {
         <div>
             <Navegacion />
             <div className='home'>
-                <Espacios nombreUsuario={nombreUsuario} listaEquipos={listaEquipos}  handleNombreEspacio={handleNombreEspacio}/>
-                <Tableros listaTableros={listaTableros} nombreEspacio={nombreEspacio}/>
+                <Espacios nombreUsuario={nombreUsuario} listaEquipos={listaEquipos}  handleNombreEspacio={handleNombreEspacio} />
+                <Tableros listaTableros={listaTableros} nombreEspacio={nombreEspacio} nombreUsuario={nombreUsuario}/>
             </div>
         </div>
     );
