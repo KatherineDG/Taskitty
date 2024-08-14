@@ -1,0 +1,39 @@
+.contenedor-titulo-tablero{
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 30px;
+}
+
+.contenedor-cajas-tareas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja-tareas{
+    width: 30%;
+    margin: 0 10px 0 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    border: 3px solid #CB76A5;
+    height: 70vh;
+}
+
+.titulo-caja-tareas{
+    background-color: #CB76A5;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Niramit-SemiBold';
+    font-size: 1.3em;
+}
+
+.btn-crear-tarea{
+    background-color: #E3A5C7;
+    color: white;
+    font-family: 'Niramit-SemiBold';
+    width: 100%;
+    border: 1px solid white;
+}
