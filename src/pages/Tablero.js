@@ -1,11 +1,14 @@
-import {React} from 'react';
+import {React, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import './styles/Tablero.css';
 import Navegacion from '../components/Navegacion';
+import Tarea from '../components/Tarea';
 
 function Tablero() {
 
     const navigate = useNavigate();
+
+    const [abrirModalCrearTarea, setAbrirModalCrearTarea] = useState(false);
 
     const nombreTablero = 'Tablero1';
     const nombreEspacio = 'Espacio1';
@@ -13,6 +16,11 @@ function Tablero() {
     const irAtras = () => {
         navigate('/home-espacios')
     }
+
+    const handleAbrirModalCrearTarea = () => {
+        setAbrirModalCrearTarea(true);
+    }
+
 
     return (
         <div>
@@ -25,6 +33,9 @@ function Tablero() {
                 <div className='contenedor-cajas-tareas'>
                     <div className='caja-tareas'>
                         <p className='titulo-caja-tareas'>Hacer</p>
+                        <div className='contenedor-tareas'>
+                            <Tarea tituloTarea={'Tarea1'} listaMiembrosConectados={['m1', 'm2']} dificultad={'facil'}/>
+                        </div>
                         <button className='btn-crear-tarea'>+</button>
                     </div>
                     <div className='caja-tareas'>
