@@ -4,6 +4,7 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './styles/Tablero.css';
 import Navegacion from '../components/Navegacion';
 import Tarea from '../components/Tarea';
+import ModalAltaTarea from '../components/ModalAltaTarea';
 
 function Tablero() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ function Tablero() {
 
   const [enProcesoTareas, setEnProcesoTareas] = useState([]);
   const [terminadoTareas, setTerminadoTareas] = useState([]);
+  const [mostrarModalAltaTarea, setMostrarModalAltaTarea] = useState(false);
 
   const irAtras = () => {
     navigate('/home-espacios');
@@ -52,8 +54,17 @@ function Tablero() {
     setList(destination.droppableId, [...destTasks]);
   };
 
+  const handleMostrarModalAltaTarea = () => {
+    setMostrarModalAltaTarea(!mostrarModalAltaTarea);
+  };
+
+  const handleCerrarModalAltaTarea = () => {
+    setMostrarModalAltaTarea(false);
+  };
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
+      {mostrarModalAltaTarea ? <ModalAltaTarea handleCerrarModalAltaTarea={handleCerrarModalAltaTarea} /> : null}
       <Navegacion />
       <div className='tablero'>
         <div className='contenedor-titulo-tablero'>
@@ -79,7 +90,7 @@ function Tablero() {
                 </div>
               )}
             </Droppable>
-            <button className='btn-crear-tarea'>+</button>
+            <button className='btn-crear-tarea' onClick={handleMostrarModalAltaTarea}>+</button>
           </div>
 
           <div className='caja-tareas'>
