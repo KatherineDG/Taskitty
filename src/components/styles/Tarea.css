@@ -1,6 +1,11 @@
 .root-tarea{
     margin: 1px;
     border: 2px solid #CB76A5;
+    cursor: grab;
+}
+
+.root-tarea:active{
+    cursor: grabbing;
 }
 
 .tarea{
@@ -8,6 +13,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: white;
 }
 
 .titulo-tarea{

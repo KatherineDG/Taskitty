@@ -1,53 +1,130 @@
-import {React, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './styles/Tablero.css';
 import Navegacion from '../components/Navegacion';
 import Tarea from '../components/Tarea';
 
 function Tablero() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [hacerTareas, setHacerTareas] = useState([
+    { id: '1', tituloTarea: 'Tarea1', listaMiembrosConectados: ['m1', 'm2'], dificultad: 'facil' },
+    { id: '2', tituloTarea: 'Tarea2', listaMiembrosConectados: ['m1', 'm2'], dificultad: 'facil' },
+    { id: '3', tituloTarea: 'Tarea3', listaMiembrosConectados: ['m1', 'm2'], dificultad: 'facil' }
+  ]);
 
-    const [abrirModalCrearTarea, setAbrirModalCrearTarea] = useState(false);
+  const [enProcesoTareas, setEnProcesoTareas] = useState([]);
+  const [terminadoTareas, setTerminadoTareas] = useState([]);
 
-    const nombreTablero = 'Tablero1';
-    const nombreEspacio = 'Espacio1';
+  const irAtras = () => {
+    navigate('/home-espacios');
+  };
 
-    const irAtras = () => {
-        navigate('/home-espacios')
+  const onDragEnd = (result) => {
+    const { source, destination } = result;
+
+    if (!destination) return;
+
+    if (source.droppableId === destination.droppableId && source.index === destination.index) {
+      return;
     }
 
-    const handleAbrirModalCrearTarea = () => {
-        setAbrirModalCrearTarea(true);
-    }
+    const getList = (id) => {
+      if (id === 'todo') return hacerTareas;
+      if (id === 'inProcess') return enProcesoTareas;
+      if (id === 'done') return terminadoTareas;
+    };
 
+    const setList = (id, tasks) => {
+      if (id === 'todo') setHacerTareas(tasks);
+      if (id === 'inProcess') setEnProcesoTareas(tasks);
+      if (id === 'done') setTerminadoTareas(tasks);
+    };
 
-    return (
-        <div>
-            <Navegacion />
-            <div className='tablero'>
-                <div className='contenedor-titulo-tablero'>
-                    <img src='icons/iconback.png' onClick={irAtras} alt='volver' style={{"cursor":"pointer"}} height={35} width={35}></img>
-                    <p style={{"fontFamily":"Niramit-Bold", "fontSize":25, "margin-left":"20px"}}> {nombreTablero} - {nombreEspacio} </p>
-                </div>
-                <div className='contenedor-cajas-tareas'>
-                    <div className='caja-tareas'>
-                        <p className='titulo-caja-tareas'>Hacer</p>
-                        <div className='contenedor-tareas'>
-                            <Tarea tituloTarea={'Tarea1'} listaMiembrosConectados={['m1', 'm2']} dificultad={'facil'}/>
-                        </div>
-                        <button className='btn-crear-tarea'>+</button>
-                    </div>
-                    <div className='caja-tareas'>
-                        <p className='titulo-caja-tareas'>En Proceso</p>
-                    </div>
-                    <div className='caja-tareas'>
-                        <p className='titulo-caja-tareas'>Terminado</p>
-                    </div>
-                </div>
-            </div>
+    const sourceTasks = getList(source.droppableId);
+    const destTasks = getList(destination.droppableId);
+    const [movedTask] = sourceTasks.splice(source.index, 1);
+
+    destTasks.splice(destination.index, 0, movedTask);
+
+    setList(source.droppableId, [...sourceTasks]);
+    setList(destination.droppableId, [...destTasks]);
+  };
+
+  return (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Navegacion />
+      <div className='tablero'>
+        <div className='contenedor-titulo-tablero'>
+          <img src='icons/iconback.png' onClick={irAtras} alt='volver' style={{ cursor: 'pointer' }} height={35} width={35} />
+          <p style={{ fontFamily: 'Niramit-Bold', fontSize: 25, marginLeft: 20 }}>Tablero1 - Espacio1</p>
         </div>
-    )
+        <div className='contenedor-cajas-tareas'>
+          <div className='caja-tareas'>
+            <p className='titulo-caja-tareas'>Hacer</p>
+            <Droppable droppableId="todo">
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps} className='contenedor-tareas'>
+                  {hacerTareas.map((tarea, index) => (
+                    <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
+                      {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+            <button className='btn-crear-tarea'>+</button>
+          </div>
+
+          <div className='caja-tareas'>
+            <p className='titulo-caja-tareas'>En Proceso</p>
+            <Droppable droppableId="inProcess">
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps} className='contenedor-tareas'>
+                  {enProcesoTareas.map((tarea, index) => (
+                    <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
+                      {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </div>
+
+          <div className='caja-tareas'>
+            <p className='titulo-caja-tareas'>Terminado</p>
+            <Droppable droppableId="done">
+              {(provided) => (
+                <div ref={provided.innerRef} {...provided.droppableProps} className='contenedor-tareas'>
+                  {terminadoTareas.map((tarea, index) => (
+                    <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
+                      {(provided) => (
+                        <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} />
+                        </div>
+                      )}
+                    </Draggable>
+                  ))}
+                  {provided.placeholder}
+                </div>
+              )}
+            </Droppable>
+          </div>
+        </div>
+      </div>
+    </DragDropContext>
+  );
 }
 
 export default Tablero;
