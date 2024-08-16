@@ -5,6 +5,7 @@ import './styles/Tablero.css';
 import Navegacion from '../components/Navegacion';
 import Tarea from '../components/Tarea';
 import ModalAltaTarea from '../components/ModalAltaTarea';
+import ModalTarea from '../components/ModalTarea';
 
 function Tablero() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function Tablero() {
   const [enProcesoTareas, setEnProcesoTareas] = useState([]);
   const [terminadoTareas, setTerminadoTareas] = useState([]);
   const [mostrarModalAltaTarea, setMostrarModalAltaTarea] = useState(false);
+  const [verTarea, setVerTarea] = useState(false);
 
   const irAtras = () => {
     navigate('/home-espacios');
@@ -62,9 +64,18 @@ function Tablero() {
     setMostrarModalAltaTarea(false);
   };
 
+  const handleVerTarea = () => {
+    setVerTarea(true);
+  };
+
+  const handleCerrarVerTarea = () => {
+    setVerTarea(false);
+  }
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       {mostrarModalAltaTarea ? <ModalAltaTarea handleCerrarModalAltaTarea={handleCerrarModalAltaTarea} /> : null}
+      {verTarea ? <ModalTarea handleCerrarVerTarea={handleCerrarVerTarea} /> : null}
       <Navegacion />
       <div className='tablero'>
         <div className='contenedor-titulo-tablero'>
@@ -81,7 +92,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea} />
                         </div>
                       )}
                     </Draggable>
