@@ -1,7 +1,7 @@
 import {React, useState} from 'react';
 import './styles/Tarea.css';
 
-function Tarea({tituloTarea, listaMiembrosConectados, dificultad, handleVerTarea}) {
+function Tarea({tituloTarea, listaMiembrosCargo, dificultad, handleVerTarea}) {
 
 
     return (
@@ -9,7 +9,7 @@ function Tarea({tituloTarea, listaMiembrosConectados, dificultad, handleVerTarea
             <div className='tarea'>
                 <p className='titulo-tarea'>{tituloTarea}</p>
                 <div className='extra-tarea'>
-                    <p className='extra-tarea-conectados'>{listaMiembrosConectados.length}</p>
+                    <p className='extra-tarea-conectados'>{listaMiembrosCargo.length}</p>
                     <div className={dificultad}></div>
                 </div>
             </div>

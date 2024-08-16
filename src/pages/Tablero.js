@@ -11,9 +11,9 @@ function Tablero() {
   const navigate = useNavigate();
 
   const [hacerTareas, setHacerTareas] = useState([
-    { id: '1', tituloTarea: 'Tarea1', listaMiembrosConectados: ['m1', 'm2'], dificultad: 'facil' },
-    { id: '2', tituloTarea: 'Tarea2', listaMiembrosConectados: ['m1', 'm2'], dificultad: 'facil' },
-    { id: '3', tituloTarea: 'Tarea3', listaMiembrosConectados: ['m1', 'm2'], dificultad: 'facil' }
+    { id: '1', tituloTarea: 'Tarea1', dificultad: 'facil', descripcion: 'Descripcion 1', listaMiembrosCargo: ['m1', 'm2', 'm3'], listaMiembrosConectados: ['m1', 'm2'] },
+    { id: '2', tituloTarea: 'Tarea2', dificultad: 'media', descripcion: 'Descripcion 2', listaMiembrosCargo: ['m1', 'm2', 'm3'], listaMiembrosConectados: ['m1', 'm2'] },
+    { id: '3', tituloTarea: 'Tarea3', dificultad: 'dificil', descripcion: 'Descripcion 3', listaMiembrosCargo: ['m1', 'm2'], listaMiembrosConectados: ['m1', 'm2'] },
   ]);
 
   const [enProcesoTareas, setEnProcesoTareas] = useState([]);
@@ -92,7 +92,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea} />
                         </div>
                       )}
                     </Draggable>
@@ -113,7 +113,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} />
                         </div>
                       )}
                     </Draggable>
@@ -133,7 +133,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosConectados={tarea.listaMiembrosConectados} dificultad={tarea.dificultad} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} />
                         </div>
                       )}
                     </Draggable>

@@ -41,7 +41,23 @@
 .facil{
     width: 80px;
     height: 10px;
-    background-color: #E3A5C7;
+    background-color: #C1F0A8;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.media{
+    width: 80px;
+    height: 10px;
+    background-color: #FFDB8C;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.dificil{
+    width: 80px;
+    height: 10px;
+    background-color: #CD5C08;
     border-radius: 10px;
     margin: 10px;
 }
