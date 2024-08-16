@@ -92,7 +92,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea}/>
                         </div>
                       )}
                     </Draggable>
@@ -113,7 +113,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea} />
                         </div>
                       )}
                     </Draggable>
@@ -133,7 +133,7 @@ function Tablero() {
                     <Draggable key={tarea.id} draggableId={tarea.id} index={index}>
                       {(provided) => (
                         <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} />
+                          <Tarea tituloTarea={tarea.tituloTarea} listaMiembrosCargo={tarea.listaMiembrosCargo} dificultad={tarea.dificultad} handleVerTarea={handleVerTarea} estado={'terminado'}/>
                         </div>
                       )}
                     </Draggable>

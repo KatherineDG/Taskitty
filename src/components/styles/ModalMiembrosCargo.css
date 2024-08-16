@@ -1,0 +1,32 @@
+.root-modal-miembros-cargo{
+    position: absolute;
+    font-family: 'Niramit-SemiBold';
+}
+
+.modal-miembros-cargo-derecha{
+    background-color: white;
+    border: 2px solid #71475E;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    margin-left: 200px;
+    padding: 5px;
+}
+
+.modal-miembros-cargo-izquierda{
+    background-color: white;
+    border: 2px solid #71475E;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    margin-left: -180px;
+    width: 130px;
+    padding: 5px;
+}
+
+.modal-miembros-cargo p{
+    margin: 0;
+}
+
+.miembro-cargo::before{
+    content: "• ";
+    color: #71475E;
+}
