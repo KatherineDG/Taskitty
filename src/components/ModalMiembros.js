@@ -1,7 +1,7 @@
 import {React} from 'react';
 import './styles/ModalMiembros.css';
 
-function ModalMiembros() {
+function ModalMiembros({listaAdministradores, listaInvitados}) {
 
     const linstaAdministradores = ['Admin1'];
     const linstaModeradores = ['Mod1', 'Mod2'];

@@ -20,8 +20,8 @@ function Espacios({nombreUsuario, listaEquipos, handleNombreEspacio}) {
             <hr></hr>
             <p className="titulo-espacio">Equipos</p>
             <div className="listado-equipos">
-                {listaEquipos.map((equipo) => {
-                return <button className="espacio" onClick={()=>(handleNombreEspacio(equipo), handleEspacioSeleccionado(equipo))} style={espacioSeleccionado === equipo ? {"border": "3px solid #71475E"} : {}}>{equipo}</button>;
+                {listaEquipos.map((equipo, index) => {
+                return <button className="espacio" onClick={()=>(handleNombreEspacio(equipo.nombre), handleEspacioSeleccionado(equipo.nombre))} style={espacioSeleccionado === equipo.nombre ? {"border": "3px solid #71475E"} : {}}>{equipo.nombre}</button>;
                 })}
             </div>
         </div>

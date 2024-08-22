@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import './styles/Inicio.css';
 import './styles/RootStyle.css';
 import { useNavigate } from 'react-router-dom';
@@ -28,6 +28,11 @@ function Inicio() {
         navigate('/registro');
     }
 
+    const loginConGoogle = () => {
+        window.location.href = 'http://localhost:5000/auth/google';
+    }
+
+
     return (
         <div className='root-inicio'>
             <div className='inicio'>
@@ -47,7 +52,7 @@ function Inicio() {
                             <button onClick={handleEntrar} style={{'fontFamily':'Niramit-Bold'}}>Entrar</button>
                         </form>
                         <p>o</p>
-                        <button id='iniciogoogle' style={{'fontFamily':'Niramit-Bold'}}><img src='icons/googleicon.png' alt='googleicon'></img>Iniciar con Google</button>
+                        <button onClick={loginConGoogle} id='iniciogoogle' style={{'fontFamily':'Niramit-Bold'}}><img src='icons/googleicon.png' alt='googleicon'></img>Iniciar con Google</button>
                         <p style={{'fontFamily':'Niramit-Regular', 'marginTop': 20}}>¿No tenes cuenta? <a onClick={irRegistro} style={{'fontFamily':'Niramit-Bold', 'cursor':'pointer'}} >Registrate</a></p>
                     </div>
                 </div>
