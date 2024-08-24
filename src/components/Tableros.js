@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import "./styles/Tableros.css";
 import ModalMiembros from "./ModalMiembros";
 
-function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario }) {
+function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleMostrarModalAltaTablero }) {
 
   const [MostrarModalMiembros, setMostrarModalMiembros] = useState(false);
 
@@ -14,7 +14,6 @@ function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario }) {
   const handleNoMostrarModalMiembros = () => {
     setMostrarModalMiembros(false);
   }
-  const listaTableross = ["Tablero Personal 1", "Tablero Personal 2", "Tablero Personal 3"];
 
   return (
     <div>
@@ -34,6 +33,7 @@ function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario }) {
             </div>
           );
         })}
+        <button className="btn-crear-tablero" onClick={handleMostrarModalAltaTablero}>+</button>
       </div>
     </div>
   );

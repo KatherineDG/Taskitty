@@ -33,3 +33,16 @@
     font-family: 'Niramit-SemiBold';
     font-size: 1.1em;
 }
+
+.btn-crear-tablero{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Niramit-Bold';
+    background-color: #1E1E1E;
+    color: white;
+    margin: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
