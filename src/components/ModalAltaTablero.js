@@ -14,15 +14,15 @@ function ModalAltaTablero({ handleCerrarModalAltaTablero, altaTableroAPI }) {
     }
 
     return (
-        <div className='root-modal-alta-tarea'>
-            <div className='modal-alta-tarea'>
+        <div className='root-modal-alta-tablero'>
+            <div className='modal-alta-tablero'>
                 <p style={{ "fontFamily": "Kodchasan-Bold", "fontSize": 25, "margin": "30px 0 5px 0" }}>Nuevo tablero</p>
-                <form className='form-alta-tarea' onSubmit={handleSubmit}>
+                <form className='form-alta-tablero' onSubmit={handleSubmit}>
                     <label>Nombre del tablero</label>
                     <input type='text' id='nombreTablero' name='nombreTablero' onChange={handleNombreTablero} required />
-                    <div className='contenedor-btn-alta-tarea'>
-                        <button type="submit" className='btn-alta-tarea'>Crear</button>
-                        <button type="button" className='btn-cancelar-alta-tarea' onClick={handleCerrarModalAltaTablero}>Cancelar</button>
+                    <div className='contenedor-btn-alta-tablero'>
+                        <button type="submit" className='btn-alta-tablero'>Crear</button>
+                        <button type="button" className='btn-cancelar-alta-tablero' onClick={handleCerrarModalAltaTablero}>Cancelar</button>
                     </div>
                 </form>
             </div>

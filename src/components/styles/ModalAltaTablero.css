@@ -1,56 +1,48 @@
-.root-modal-alta-tarea{
-    display: flex;
-    justify-content: center;
-}
-
-.modal-alta-tarea{
-    position: absolute;
+.root-modal-alta-tablero{
+    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0 0 0;
+    margin: 25vh 0 0 75vh;
     width: 80vh;
-    height: 50vh;
+    height: 40vh;
     background-color: rgb(255, 255, 255);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
     border: 5px solid #CB76A5;
     border-radius: 20px;
 }
 
-.form-alta-tarea{
+.root-modal-alta-tablero::backdrop{
+    backdrop-filter: blur(10px);
+}
+
+.modal-alta-tablero{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 10; /* Asegura que el contenido esté por encima del fondo */
+    pointer-events: auto;
+}
+
+
+
+.form-alta-tablero{
     display: flex;
     flex-direction: column;
 }
 
-.form-alta-tarea label{
+.form-alta-tablero label{
     margin: 10px 0 0 0;
     font-size: 20px;
     font-family: 'Niramit-SemiBold';
 }
 
-.form-alta-tarea input{
+.form-alta-tablero input{
     font-size: 1em;
     font-family: 'Niramit-Regular';
 }
 
-.form-alta-tarea textarea{
-    font-size: 1em;
-    font-family: 'Niramit-Regular';
-}
-
-.seleccion-dificultad{
-    display: flex;
-    flex-direction: row;
-}
-
-.seleccion-dificultad div{
-    margin: 0 5px 0 0;
-    padding: 10px 50px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-alta-tarea{
+.btn-alta-tablero{
     background-color: #E3A5C7;
     border: none;
     margin: 10% 5% 0 5%;
@@ -61,38 +53,7 @@
     cursor: pointer;
 }
 
-.btn-buscar-miembro{
-    background-color: #CB76A5;
-    color: white;
-    margin: 0 0 0 5px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.contenedor-miembros-a-invitar{
-    display: flex;
-    flex-direction: row;
-    max-width: 300px; 
-    overflow-x: auto; 
-}
-
-.contenedor-miembros-a-invitar p{
-    margin: 5px 15px 0 0;
-    white-space: nowrap;
-    max-width: 100%;      
-}
-
-.contenedor-miembros-a-invitar button{
-    border: none;
-    border-radius: 5px;
-    background-color: #CB76A5;
-    color: white;
-    cursor: pointer;
-}
-
-.btn-cancelar-alta-tarea{
+.btn-cancelar-alta-tablero{
     background-color: #000000;
     color: white;
     border: none;
@@ -104,7 +65,7 @@
     cursor: pointer;
 }
 
-.contenedor-btn-alta-tarea{
+.contenedor-btn-alta-tablero{
     display: flex;
     flex-direction: row;
     justify-content: center;
