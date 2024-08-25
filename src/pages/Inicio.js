@@ -2,6 +2,7 @@ import {React, useState, useEffect} from 'react';
 import './styles/Inicio.css';
 import './styles/RootStyle.css';
 import { useNavigate } from 'react-router-dom';
+import login from '../api/login.api';
 
 function Inicio() {
    
@@ -20,7 +21,18 @@ function Inicio() {
         console.log(contrasena)
     }
 
-    const handleEntrar = () => {
+    const handleEntrar = async (event) => {
+        event.preventDefault()
+        try {
+            const response = await login(nombreUsuario, contrasena);
+            console.log('Respuesta:', response);
+            if (response.status === 200) {
+                localStorage.setItem('userId', response.data._id);
+                navigate(`/home-espacios?userId=${response.data._id}`);
+            }
+        } catch (error) {
+            console.error('Error al iniciar sesión:', error);
+        }
         console.log('Entrar')
     }
 
@@ -44,15 +56,15 @@ function Inicio() {
                     <div className='contenedor-iniciar-sesion'>
                         <h2 style={{'fontFamily':'Niramit-Bold'}} >¡Bienvenido a Taskitty!</h2>
                         <p style={{'fontFamily':'Niramit-SemiBold'}} >Iniciar Sesión</p>
-                        <form className='form-inicio'>
+                        <form className='form-inicio' onSubmit={handleEntrar} >
                             <label style={{'fontFamily':'Niramit-Medium'}}>Nombre de usuario</label>
                             <input onChange={handleNombreUsuario} type='text' style={{'fontFamily':'Niramit-Medium'}} />
                             <label style={{'fontFamily':'Niramit-Medium'}}>Contraseña</label>
                             <input onChange={handleContrasena} type='password' style={{'fontFamily':'Niramit-Medium'}} />
-                            <button onClick={handleEntrar} style={{'fontFamily':'Niramit-Bold'}}>Entrar</button>
+                            <button type='submit' style={{'fontFamily':'Niramit-Bold'}}>Entrar</button>
                         </form>
                         <p>o</p>
-                        <button onClick={loginConGoogle} id='iniciogoogle' style={{'fontFamily':'Niramit-Bold'}}><img src='icons/googleicon.png' alt='googleicon'></img>Iniciar con Google</button>
+                        <button onClick={loginConGoogle} type='button' id='iniciogoogle' style={{'fontFamily':'Niramit-Bold'}}><img src='icons/googleicon.png' alt='googleicon'></img>Iniciar con Google</button>
                         <p style={{'fontFamily':'Niramit-Regular', 'marginTop': 20}}>¿No tenes cuenta? <a onClick={irRegistro} style={{'fontFamily':'Niramit-Bold', 'cursor':'pointer'}} >Registrate</a></p>
                     </div>
                 </div>
