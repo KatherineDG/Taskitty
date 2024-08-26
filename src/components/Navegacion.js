@@ -21,7 +21,11 @@ function Navegacion() {
                     <h1>TASKITTY</h1>
                     <img className='icon-marca' src='icons/icontaskitty.png'></img>
                 </div>
-                <img src='icons/gatobromista.png' height={60} width={60} onMouseEnter={abrirModalPerfil}></img>
+                <div className='iconos'>
+                    <img className='icon-notificacion' src='icons/campanaicon.png' style={{"cursor":"pointer"}}></img>
+                    <div className='notificacion'></div>
+                    <img src='icons/gatobromista.png' height={60} width={60} onMouseEnter={abrirModalPerfil}></img>
+                </div>  
                 {mostrarModalPerfil ? <ModalPerfil cerrarModalPerfil={cerrarModalPerfil} /> : null}
             </div>
         </div>
