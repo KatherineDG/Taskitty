@@ -23,6 +23,7 @@ function Espacios({nombreUsuario, listaEquipos, handleNombreEspacio}) {
                 {listaEquipos.map((equipo, index) => {
                 return <button className="espacio" onClick={()=>(handleNombreEspacio(equipo.nombre), handleEspacioSeleccionado(equipo.nombre))} style={espacioSeleccionado === equipo.nombre ? {"border": "3px solid #71475E"} : {}}>{equipo.nombre}</button>;
                 })}
+                <button className="btn-crear-equipo">+</button>
             </div>
         </div>
     );
