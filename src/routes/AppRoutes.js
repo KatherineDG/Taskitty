@@ -4,6 +4,7 @@ import Inicio from "../pages/Inicio";
 import Registro from "../pages/Registro";
 import Home from "../pages/Home";
 import Tablero from "../pages/Tablero";
+import Perfil from "../pages/Perfil";
 
 function AppRoutes() {
   return (
@@ -12,6 +13,7 @@ function AppRoutes() {
       <Route path="/registro" element={<Registro />} />
       <Route path="/home-espacios" element={<Home />} />
       <Route path="/tablero" element={<Tablero />} />
+      <Route path="/perfil" element={<Perfil />} />
     </Routes>
   );
 }

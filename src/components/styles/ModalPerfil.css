@@ -1,0 +1,23 @@
+.root-modal-perfil{
+    position: absolute;
+    top: 85px;
+    right: 0;
+    font-family: 'Niramit-SemiBold';
+}
+
+.modal-perfil{
+    position: sticky;
+    background-color: #FFE7F4;
+
+}
+
+.modal-perfil p{
+    border: 1px solid #FFB6D1;
+    padding: 10px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.modal-perfil p:hover{
+    background-color: #FFB6D1;
+}
