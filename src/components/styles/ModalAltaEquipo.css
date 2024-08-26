@@ -1,0 +1,101 @@
+.root-modal-alta-equipo{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20vh 0 0 75vh;
+    width: 80vh;
+    height: 65vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    border: 5px solid #CB76A5;
+    border-radius: 20px;
+}
+
+.root-modal-alta-equipo::backdrop{
+    backdrop-filter: blur(10px);
+}
+
+.modal-alta-equipo{
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    z-index: 10; /* Asegura que el contenido esté por encima del fondo */
+    pointer-events: auto;
+}
+
+.form-alta-equipo{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-alta-equipo label{
+    margin: 10px 0 0 0;
+    font-size: 20px;
+    font-family: 'Niramit-SemiBold';
+}
+
+.form-alta-equipo input{
+    font-size: 1em;
+    font-family: 'Niramit-Regular';
+}
+
+.btn-buscar-miembro{
+    background-color: #CB76A5;
+    color: white;
+    margin: 0 0 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contenedor-miembros-a-invitar{
+    display: flex;
+    flex-direction: row;
+    max-width: 300px; 
+    overflow-x: auto; 
+}
+
+.contenedor-miembros-a-invitar p{
+    margin: 5px 15px 0 0;
+    white-space: nowrap;
+    max-width: 100%;      
+}
+
+.contenedor-miembros-a-invitar button{
+    border: none;
+    border-radius: 5px;
+    background-color: #CB76A5;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-alta-equipo{
+    background-color: #E3A5C7;
+    border: none;
+    margin: 10% 5% 0 5%;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Niramit-SemiBold';
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.btn-cancelar-alta-equipo{
+    background-color: #000000;
+    color: white;
+    border: none;
+    margin: 10% 5% 0 5%;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Niramit-SemiBold';
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.contenedor-btn-alta-equipo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

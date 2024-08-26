@@ -9,6 +9,7 @@ import getUsuario from "../api/getUsuario.api";
 import ModalAltaTablero from "../components/ModalAltaTablero";
 import postTableroEquipo from "../api/postTableroEquipo";
 import postTableroEspacio from "../api/postTableroEspacio";
+import ModalAltaEquipo from "../components/ModalAltaEquipo";
 
 function Home() {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ function Home() {
   const [listaEquipos, setListaEquipos] = useState([]);
   const [listaTableros, setListaTableros] = useState([]);
   const [mostrarModalAltaTablero, setMostrarModalAltaTablero] = useState(false);
+  const [mostrarModalAltaEquipo, setMostrarModalAltaEquipo] = useState(false);
 
   const handleNombreEspacio = (nombreEspacio) => {
     console.log("Nombre de espacio:", nombreEspacio);
@@ -109,17 +111,29 @@ else {
       }
     }
   };
+
+  
+    const abrirModalAltaEquipo = () => {
+      setMostrarModalAltaEquipo(true);
+  }
+
+  const cerrarModalAltaEquipo = () => {
+      setMostrarModalAltaEquipo(false);
+  }
+
   
 
   return (
     <div>
       {mostrarModalAltaTablero ? <ModalAltaTablero handleCerrarModalAltaTablero={handleCerrarModalAltaTablero} altaTableroAPI={altaTableroAPI}/> : null}
+      {mostrarModalAltaEquipo ? <ModalAltaEquipo cerrarModalAltaEquipo={cerrarModalAltaEquipo}/> : null}
       <Navegacion />
       <div className="home">
         <Espacios
           nombreUsuario={usuario.nombre}
           listaEquipos={listaEquipos}
           handleNombreEspacio={handleNombreEspacio}
+          abrirModalAltaEquipo={abrirModalAltaEquipo}
         />
         <Tableros
           listaTablerosPersonal={listaTableros}

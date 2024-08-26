@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import "./styles/Espacios.css";
 
-function Espacios({nombreUsuario, listaEquipos, handleNombreEspacio}) {
+function Espacios({nombreUsuario, listaEquipos, handleNombreEspacio, abrirModalAltaEquipo}) {
 
     const [espacioSeleccionado, setEspacioSeleccionado] = useState(`Espacio de ${nombreUsuario}`);
 
@@ -23,7 +23,7 @@ function Espacios({nombreUsuario, listaEquipos, handleNombreEspacio}) {
                 {listaEquipos.map((equipo, index) => {
                 return <button className="espacio" onClick={()=>(handleNombreEspacio(equipo.nombre), handleEspacioSeleccionado(equipo.nombre))} style={espacioSeleccionado === equipo.nombre ? {"border": "3px solid #71475E"} : {}}>{equipo.nombre}</button>;
                 })}
-                <button className="btn-crear-equipo">+</button>
+                <button className="btn-crear-equipo" onClick={abrirModalAltaEquipo}>+</button>
             </div>
         </div>
     );
