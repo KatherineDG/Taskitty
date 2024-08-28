@@ -27,18 +27,17 @@
 .iconos .icon-notificacion{
     width: 30px;
     height: 30px;
-    background-color: aquamarine;
-    border: 3px solid white;
     margin: 0 10em 0 0;
     cursor: pointer;
 }
 
 .notificacion{
     position: absolute;
-    width: 20px;
-    height: 20px;
-    top: 50px;
-    background-color: #FFB6D1;
+    width: 15px;
+    height: 15px;
+    top: 40px;
+    right: 100px;
+    background-color: #df6c96;
     border-radius: 50%;
     color: white;
 }

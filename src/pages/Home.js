@@ -10,6 +10,7 @@ import ModalAltaTablero from "../components/ModalAltaTablero";
 import postTableroEquipo from "../api/postTableroEquipo";
 import postTableroEspacio from "../api/postTableroEspacio";
 import ModalAltaEquipo from "../components/ModalAltaEquipo";
+import postEquipo from "../api/postEquipo";
 
 function Home() {
   const navigate = useNavigate();
@@ -121,12 +122,23 @@ else {
       setMostrarModalAltaEquipo(false);
   }
 
-  
+  const altaEquipoAPI = async (nombreEquipo, invitados) => {
+    console.log(usuario._id, nombreEquipo, invitados)
+    try {
+        const response = await postEquipo(usuario._id, nombreEquipo, invitados);
+        console.log("Respuesta de alta de equipo:", response.message);
+        if (response.message === "Equipo creado") {
+           window.location.reload();
+        }
+    } catch (error) {
+        console.error("Error al dar de alta el equipo:", error);
+    }
+}
 
   return (
     <div>
       {mostrarModalAltaTablero ? <ModalAltaTablero handleCerrarModalAltaTablero={handleCerrarModalAltaTablero} altaTableroAPI={altaTableroAPI}/> : null}
-      {mostrarModalAltaEquipo ? <ModalAltaEquipo cerrarModalAltaEquipo={cerrarModalAltaEquipo}/> : null}
+      {mostrarModalAltaEquipo ? <ModalAltaEquipo cerrarModalAltaEquipo={cerrarModalAltaEquipo} altaEquipoAPI={altaEquipoAPI}/> : null}
       <Navegacion />
       <div className="home">
         <Espacios
