@@ -1,0 +1,60 @@
+.root-invitaciones{
+    position: absolute;
+    right: 0;
+    font-family: 'Niramit-Regular';
+}
+
+.invitaciones{
+    display: flex;
+    flex-direction: column;
+    background-color: #f5f5f5;
+    border-radius: 0 0 10px 10px;
+    padding: 10px;
+    background-color: #E3A5C7;
+}
+
+.invitacion{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.invitacion-info{
+    width: 100%;
+}
+
+.invitacion-info p{
+    margin: 0;
+    line-height: 1.2;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin-left: 5px;
+}
+
+.botones img{
+    width: 30px;
+    cursor: pointer;
+}
+
+.btn-cerrar-invitaciones{
+    font-family: 'Niramit-Regular';
+    margin: 0 35%;
+    border: none;
+    border-radius: 5px;
+    background-color: #CB76A5;
+    color: white;
+    cursor: pointer;
+}
+
+.sin-invitaciones{
+    font-family: 'Niramit-Regular';
+}
