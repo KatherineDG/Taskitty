@@ -1,40 +1,41 @@
-import {React} from 'react';
+import {React, useEffect, useState} from 'react';
 import './styles/ModalMiembros.css';
 
-function ModalMiembros({listaAdministradores, listaInvitados}) {
+function ModalMiembros({listaEquipos, nombreEspacio}) {
 
-    const linstaAdministradores = ['Admin1'];
-    const linstaModeradores = ['Mod1', 'Mod2'];
-    const linstaInvitados = ['Inv1', 'Inv2'];
+    const [listaAdministradores, setListaAdministradores] = useState([]);
+    const [listaInvitados, setListaInvitados] = useState([]);
+
+    useEffect(() => {
+        listaEquipos.map((equipo) => {
+            if (equipo.nombre === nombreEspacio) {
+                setListaAdministradores(equipo.miembros.administradores);
+                setListaInvitados(equipo.miembros.invitados);
+            }
+        });
+        
+    }, []);
+
 
     return (
         <div className='root-modal-miembros'>
             <div>
                 <p style={{"fontSize":"1.4em", "margin":0}}>Miembros</p>
                 <p style={{"fontSize":"1.2em", "margin":0}}>Administradores</p>
-                {linstaAdministradores.map((administrador) => {
+                {listaAdministradores.map((administrador) => {
                     return(
                         <div className='miembro'>
                             <img src='icons/gatobromista.png' height={40} width={40} style={{"margin":"0 20px 0 0"}} alt='iconoperfil'></img>
-                            {administrador}
-                        </div>
-                    )
-                })}
-                <p style={{"fontSize":"1.2em", "margin":0}}>Moderadores</p>
-                {linstaModeradores.map((moderador) => {
-                    return(
-                        <div className='miembro'>
-                            <img src='icons/gatobromista.png' height={40} width={40} style={{"margin":"0 20px 0 0"}} alt='iconoperfil'></img>
-                            {moderador}
+                            {administrador.nombre}
                         </div>
                     )
                 })}
                 <p style={{"fontSize":"1.2em", "margin":0}}>Invitados</p>
-                {linstaInvitados.map((invitado) => {
+                {listaInvitados.map((invitado) => {
                     return(
                         <div className='miembro'>
                             <img src='icons/gatobromista.png' height={40} width={40} style={{"margin":"0 20px 0 0"}} alt='iconoperfil'></img>
-                            {invitado}
+                            {invitado.nombre}
                         </div>
                     )
                 })}

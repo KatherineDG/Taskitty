@@ -2,7 +2,7 @@ import { React, useState, useEffect } from "react";
 import "./styles/Tableros.css";
 import ModalMiembros from "./ModalMiembros";
 
-function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleMostrarModalAltaTablero }) {
+function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleMostrarModalAltaTablero, listaEquipos }) {
 
   const [MostrarModalMiembros, setMostrarModalMiembros] = useState(false);
 
@@ -17,7 +17,7 @@ function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleM
 
   return (
     <div>
-      { MostrarModalMiembros ? <ModalMiembros /> : '' }
+      { MostrarModalMiembros ? <ModalMiembros listaEquipos={listaEquipos} nombreEspacio={nombreEspacio}/> : '' }
       <p className="titulo-tableros">Tablero de tareas - {nombreEspacio}
         {nombreEspacio !== `Espacio de ${nombreUsuario}` && nombreEspacio !== '' ?
           <img src="icons/iconequipo.png" onMouseEnter={handleMostrarModalMiembros} onMouseOut={handleNoMostrarModalMiembros} height={50} width={50} style={{"margin":"0 0 0 10px"}} alt='iconoequipos'></img>

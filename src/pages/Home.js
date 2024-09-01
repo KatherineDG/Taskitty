@@ -171,6 +171,7 @@ else {
           nombreEspacio={nombreEspacio}
           nombreUsuario={usuario.nombre}
           handleMostrarModalAltaTablero={handleMostrarModalAltaTablero}
+          listaEquipos={listaEquipos}
         />
       </div>
     </div>
