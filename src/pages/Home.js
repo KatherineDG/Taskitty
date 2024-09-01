@@ -21,6 +21,8 @@ function Home() {
   const [listaTableros, setListaTableros] = useState([]);
   const [mostrarModalAltaTablero, setMostrarModalAltaTablero] = useState(false);
   const [mostrarModalAltaEquipo, setMostrarModalAltaEquipo] = useState(false);
+  const [listaInvitaciones, setListaInvitaciones] = useState([]);
+  const [hayInvitaciones, setHayInvitaciones] = useState(false);
 
   const handleNombreEspacio = (nombreEspacio) => {
     console.log("Nombre de espacio:", nombreEspacio);
@@ -52,6 +54,13 @@ function Home() {
                 setNombreEspacio(`Espacio de ${user.nombre}`);
                 setListaTableros(user.espacio);
                 setListaEquipos(user.equipos);
+                const invitaciones = user.invitaciones;
+                setListaInvitaciones(invitaciones);
+                if(invitaciones.length > 0){
+                  setHayInvitaciones(true)
+                } else{
+                  setHayInvitaciones(false)
+                }
 
                 // Guardar la cadena JSON en localStorage
                 localStorage.setItem("usuario", JSON.stringify(user));
@@ -75,6 +84,13 @@ else {
                 setNombreEspacio(`Espacio de ${user.nombre}`);
                 setListaTableros(user.espacio);
                 setListaEquipos(user.equipos);
+                const invitaciones = user.invitaciones;
+                setListaInvitaciones(invitaciones);
+                if(invitaciones.length > 0){
+                  setHayInvitaciones(true)
+                } else{
+                  setHayInvitaciones(false)
+                }
   };
   fetchUsuarioLS();
           }
@@ -139,7 +155,7 @@ else {
     <div>
       {mostrarModalAltaTablero ? <ModalAltaTablero handleCerrarModalAltaTablero={handleCerrarModalAltaTablero} altaTableroAPI={altaTableroAPI}/> : null}
       {mostrarModalAltaEquipo ? <ModalAltaEquipo cerrarModalAltaEquipo={cerrarModalAltaEquipo} altaEquipoAPI={altaEquipoAPI}/> : null}
-      <Navegacion />
+      <Navegacion listaInvitaciones={listaInvitaciones} hayInvitaciones={hayInvitaciones} />
       <div className="home">
         <Espacios
           nombreUsuario={usuario.nombre}

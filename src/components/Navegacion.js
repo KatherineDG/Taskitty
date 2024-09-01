@@ -1,13 +1,13 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import './styles/Navegacion.css';
 import ModalPerfil from './ModalPerfil';
 import Invitaciones from './Invitaciones';
+import getInvitaciones from '../api/getInvitaciones';
 
-function Navegacion() {
+function Navegacion({listaInvitaciones, hayInvitaciones}) {
 
     const [mostrarModalPerfil, setMostrarModalPerfil] = useState(false);
-    const [mostrarInvitaciones, setMostrarInvitaciones] = useState(false);
-    const [hayInvitaciones, setHayInvitaciones] = useState(true);
+    const [mostrarInvitaciones, setMostrarInvitaciones] = useState();
 
     const abrirModalPerfil = () => {
         setMostrarModalPerfil(true);
@@ -15,10 +15,6 @@ function Navegacion() {
 
     const cerrarModalPerfil = () => {
         setMostrarModalPerfil(false);
-    }
-
-    const handleHayInvitaciones = () => {
-        setHayInvitaciones(!hayInvitaciones);
     }
 
     const abrirInvitaciones = () => {
@@ -43,7 +39,7 @@ function Navegacion() {
                 </div>  
                 {mostrarModalPerfil ? <ModalPerfil cerrarModalPerfil={cerrarModalPerfil} /> : null}
             </div>
-            {mostrarInvitaciones ? <Invitaciones cerrarInvitaciones={cerrarInvitaciones} hayInvitaciones={hayInvitaciones}/> : null}
+            {mostrarInvitaciones ? <Invitaciones cerrarInvitaciones={cerrarInvitaciones} hayInvitaciones={hayInvitaciones} listaInvitaciones={listaInvitaciones}/> : null}
         </div>
     );
 }
