@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { React, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import './styles/Tablero.css';
 import Navegacion from '../components/Navegacion';
 import Tarea from '../components/Tarea';
 import ModalAltaTarea from '../components/ModalAltaTarea';
 import ModalTarea from '../components/ModalTarea';
+import useUsuario from '../hooks/useUsuario';
 
 function Tablero() {
   const navigate = useNavigate();
+
+    const {
+      usuario,
+      listaInvitaciones,
+      hayInvitaciones,
+      nombreEspacio,
+      listaTableros
+  } = useUsuario();
+
+  const nombreTablero = useParams().nombreTablero;
 
   const [hacerTareas, setHacerTareas] = useState([
     { id: '1', tituloTarea: 'Tarea1', dificultad: 'facil', descripcion: 'Descripcion 1', listaMiembrosCargo: ['m1', 'm2', 'm3'], listaMiembrosConectados: ['m1', 'm2'] },
@@ -76,11 +87,11 @@ function Tablero() {
     <DragDropContext onDragEnd={onDragEnd}>
       {mostrarModalAltaTarea ? <ModalAltaTarea handleCerrarModalAltaTarea={handleCerrarModalAltaTarea} /> : null}
       {verTarea ? <ModalTarea handleCerrarVerTarea={handleCerrarVerTarea} /> : null}
-      <Navegacion />
+      <Navegacion listaInvitaciones={listaInvitaciones} hayInvitaciones={hayInvitaciones} fotoPerfil={usuario.foto}/>
       <div className='tablero'>
         <div className='contenedor-titulo-tablero'>
-          <img src='icons/iconback.png' onClick={irAtras} alt='volver' style={{ cursor: 'pointer' }} height={35} width={35} />
-          <p style={{ fontFamily: 'Niramit-Bold', fontSize: 25, marginLeft: 20 }}>Tablero1 - Espacio1</p>
+          <img src='/icons/iconback.png' onClick={irAtras} alt='volver' style={{ cursor: 'pointer' }} height={35} width={35} />
+          <p style={{ fontFamily: 'Niramit-Bold', fontSize: 25, marginLeft: 20 }}>{nombreTablero} - {nombreEspacio}</p>
         </div>
         <div className='contenedor-cajas-tareas'>
           <div className='caja-tareas'>

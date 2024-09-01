@@ -12,7 +12,7 @@ function AppRoutes() {
       <Route path="/" element={<Inicio />} />
       <Route path="/registro" element={<Registro />} />
       <Route path="/home-espacios" element={<Home />} />
-      <Route path="/tablero" element={<Tablero />} />
+      <Route path="/tablero/:nombreTablero" element={<Tablero />} />
       <Route path="/perfil" element={<Perfil />} />
     </Routes>
   );

@@ -1,9 +1,11 @@
 import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/Tableros.css";
 import ModalMiembros from "./ModalMiembros";
 
 function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleMostrarModalAltaTablero, listaEquipos }) {
 
+  const navigate = useNavigate();
   const [MostrarModalMiembros, setMostrarModalMiembros] = useState(false);
 
 
@@ -13,6 +15,10 @@ function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleM
 
   const handleNoMostrarModalMiembros = () => {
     setMostrarModalMiembros(false);
+  }
+
+  const irTablero = (nombreTablero) => {
+    navigate(`/tablero/${nombreTablero}`);
   }
 
   return (
@@ -28,7 +34,7 @@ function Tableros({ listaTablerosPersonal, nombreEspacio, nombreUsuario, handleM
         {listaTablerosPersonal.map((tableroPersonal, index) => {
           console.log('Tablero:', tableroPersonal); // Verifica que el objeto tiene la propiedad nombre
           return (
-            <div key={index} className="tablero-tareas">
+            <div onClick={()=>irTablero(tableroPersonal.nombre)} key={index} className="tablero-tareas">
               <p className="titulo-tablero">{tableroPersonal.nombre}</p>
             </div>
           );
