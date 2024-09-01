@@ -1,9 +1,12 @@
 import {React, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import './styles/Registro.css';
 import './styles/RootStyle.css';
 import registroUsuario from '../api/registroUsuario.api';
 
 function Registro() {
+
+    const navigte = useNavigate()
 
     const [iconoSeleccionado, setIconoSeleccionado] = useState('')
     const [nombreUsuario, setNombreUsuario] = useState('')
@@ -35,27 +38,35 @@ function Registro() {
         setContrasena(event.target.value)
     }
 
-    const crearCuenta = async () => {
+    const crearCuenta = async (event) => {
+        event.preventDefault();
+        console.log(nombreUsuario, contrasena, correoElectronico, iconoSeleccionado)
         try{
+            console.log('Creando cuenta...')
             const response = await registroUsuario(nombreUsuario, contrasena, correoElectronico, iconoSeleccionado)
+            console.log(response)
+            if (response === 201){
+                alert('Cuenta creada con éxito')
+                navigte('/')
+            }
         } catch (error) {
             console.error('Error al crear cuenta:', error)
         }
     }
 
-    const listaIconosGatos = ['icons/gatobromista.png', 'icons/gatohamburguesa.png', 'icons/gatopensativo.png', 'icons/gatotriste.png']
+    const listaIconosGatos = ['gatobromista.png', 'gatohamburguesa.png', 'gatopensativo.png', 'gatotriste.png']
 
     return (
         <div className='root-registro'>
             <div className='registro'>
                 <h1>TASKITTY</h1>
-                <form className='form-registro'>
+                <form className='form-registro' onSubmit={crearCuenta}>
                     <p style={{'fontFamily':'Niramit-Medium'}}>Elegí tu icono</p>
                     <div>
                         <div>
                             {listaIconosGatos.map((icono) => {
                                 return (
-                                    <img src={icono} className='icono-gato' id={icono} onClick={() => handleIconoSeleccionado(icono)} alt='icono-gato' ></img>
+                                    <img src={`icons/${icono}`} className='icono-gato' id={icono} onClick={() => handleIconoSeleccionado(icono)} alt='icono-gato' ></img>
                                 )
                             })}
                     </div>
@@ -66,7 +77,7 @@ function Registro() {
                     <input type='email' onChange={handleCorreoElectronico}/>
                     <label>Contraseña</label>
                     <input type='password' onChange={handleContrasena}/>
-                    <button>Crear cuenta</button>
+                    <button type='submit'>Crear cuenta</button>
                 </form>
             </div>
         </div>

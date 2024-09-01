@@ -4,8 +4,8 @@ const registroUsuario = async (nombre, contrasena, email, foto) => {
 
     var raw = JSON.stringify({
         'nombre': nombre,
-        'contrasena': contrasena,
         'email': email,
+        'contrasena': contrasena,
         'foto': foto
     });
 
@@ -17,8 +17,8 @@ const registroUsuario = async (nombre, contrasena, email, foto) => {
         mode: 'cors'
     };
 
-    const response = await fetch('http://localhost:3000/api/usuarios/postUsuario', requestOptions)
-    return response.json()
+    const response = await fetch('http://localhost:5000/api/usuarios/postUsuario', requestOptions)
+    return response.status
 
 }
 
