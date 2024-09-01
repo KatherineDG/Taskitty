@@ -4,7 +4,7 @@ import ModalPerfil from './ModalPerfil';
 import Invitaciones from './Invitaciones';
 import getInvitaciones from '../api/getInvitaciones.api';
 
-function Navegacion({listaInvitaciones, hayInvitaciones}) {
+function Navegacion({listaInvitaciones, hayInvitaciones, fotoPerfil}) {
 
     const [mostrarModalPerfil, setMostrarModalPerfil] = useState(false);
     const [mostrarInvitaciones, setMostrarInvitaciones] = useState();
@@ -35,7 +35,7 @@ function Navegacion({listaInvitaciones, hayInvitaciones}) {
                 <div className='iconos'>
                     <img className='icon-notificacion' src='icons/campanaicon.png' onClick={abrirInvitaciones} width={30} height={30} style={{"cursor":"pointer", "margin":"0 30px 15px 0"}}></img>
                     {hayInvitaciones ? <div className='notificacion'></div> : null}
-                    <img src='icons/gatobromista.png' height={60} width={60} onMouseEnter={abrirModalPerfil}></img>
+                    <img src={`icons/${fotoPerfil}`} height={60} width={60} onMouseEnter={abrirModalPerfil}></img>
                 </div>  
                 {mostrarModalPerfil ? <ModalPerfil cerrarModalPerfil={cerrarModalPerfil} /> : null}
             </div>

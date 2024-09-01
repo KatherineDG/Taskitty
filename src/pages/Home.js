@@ -156,7 +156,7 @@ else {
     <div>
       {mostrarModalAltaTablero ? <ModalAltaTablero handleCerrarModalAltaTablero={handleCerrarModalAltaTablero} altaTableroAPI={altaTableroAPI}/> : null}
       {mostrarModalAltaEquipo ? <ModalAltaEquipo cerrarModalAltaEquipo={cerrarModalAltaEquipo} altaEquipoAPI={altaEquipoAPI}/> : null}
-      <Navegacion listaInvitaciones={listaInvitaciones} hayInvitaciones={hayInvitaciones} />
+      <Navegacion listaInvitaciones={listaInvitaciones} hayInvitaciones={hayInvitaciones} fotoPerfil={usuario.foto} />
       <div className="home">
         <Espacios
           nombreUsuario={usuario.nombre}
