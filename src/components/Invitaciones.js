@@ -1,7 +1,7 @@
 import {React} from 'react';
 import './styles/Invitaciones.css';
-import aceptarInvitacion from '../api/aceptarInvitacion';
-import rechazarInvitacion from '../api/rechazarInvitacion';
+import aceptarInvitacion from '../api/aceptarInvitacion.api';
+import rechazarInvitacion from '../api/rechazarInvitacion.api';
 
 
 function Invitaciones({cerrarInvitaciones, hayInvitaciones, listaInvitaciones}) {

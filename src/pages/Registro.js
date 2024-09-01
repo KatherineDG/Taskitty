@@ -1,6 +1,7 @@
 import {React, useState} from 'react';
 import './styles/Registro.css';
 import './styles/RootStyle.css';
+import registroUsuario from '../api/registroUsuario.api';
 
 function Registro() {
 
@@ -34,8 +35,12 @@ function Registro() {
         setContrasena(event.target.value)
     }
 
-    const crearCuenta = () => {
-        console.log('Crear cuenta')
+    const crearCuenta = async () => {
+        try{
+            const response = await registroUsuario(nombreUsuario, contrasena, correoElectronico, iconoSeleccionado)
+        } catch (error) {
+            console.error('Error al crear cuenta:', error)
+        }
     }
 
     const listaIconosGatos = ['icons/gatobromista.png', 'icons/gatohamburguesa.png', 'icons/gatopensativo.png', 'icons/gatotriste.png']

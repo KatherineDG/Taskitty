@@ -6,11 +6,12 @@ import Espacios from "../components/Espacios";
 import Tableros from "../components/Tableros";
 
 import getUsuario from "../api/getUsuario.api";
+import postEquipo from "../api/postEquipo.api";
 import ModalAltaTablero from "../components/ModalAltaTablero";
-import postTableroEquipo from "../api/postTableroEquipo";
-import postTableroEspacio from "../api/postTableroEspacio";
+import postTableroEquipo from "../api/postTableroEquipo.api";
+import postTableroEspacio from "../api/postTableroEspacio.api";
 import ModalAltaEquipo from "../components/ModalAltaEquipo";
-import postEquipo from "../api/postEquipo";
+
 
 function Home() {
   const navigate = useNavigate();
