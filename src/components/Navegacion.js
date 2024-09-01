@@ -2,7 +2,6 @@ import {React, useState, useEffect} from 'react';
 import './styles/Navegacion.css';
 import ModalPerfil from './ModalPerfil';
 import Invitaciones from './Invitaciones';
-import getInvitaciones from '../api/getInvitaciones.api';
 
 function Navegacion({listaInvitaciones, hayInvitaciones, fotoPerfil}) {
 

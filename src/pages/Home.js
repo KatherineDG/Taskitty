@@ -92,6 +92,8 @@ else {
                 } else{
                   setHayInvitaciones(false)
                 }
+
+                localStorage.setItem("usuario", JSON.stringify(user));
   };
   fetchUsuarioLS();
           }
